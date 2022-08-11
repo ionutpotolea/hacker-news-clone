@@ -3,12 +3,11 @@ import Story from "../components/Story.js"
 
 export default async function Stories(path){
   const stories = await getStories(path)
-  const hasStories = stories.length > 0
 
   view.innerHTML = `
     <div>
       ${
-        hasStories ?
+        stories ?
           stories.map((story, i) => `${Story({...story, index: i+1})}<hr />`).join('') :
           "There are no stories."
         }
@@ -30,7 +29,7 @@ async function getStories(path){
   }
 
   const result = await fetch(`https://node-hnapi.herokuapp.com${urlPath}`)
-  return result.ok ? await result.json() : []
+  return result.ok ? await result.json() : null
 }
 
 // https://node-hnapi.herokuapp.com
