@@ -1,4 +1,5 @@
 import view from "../utils/view.js"
+import baseUrl from "../utils/baseUrl.js"
 import Story from "../components/Story.js"
 
 export default async function Stories(path){
@@ -28,7 +29,7 @@ async function getStories(path){
       urlPath = path
   }
 
-  const result = await fetch(`https://node-hnapi.herokuapp.com${urlPath}`)
+  const result = await fetch(`${baseUrl}${urlPath}`)
   return result.ok ? await result.json() : null
 }
 
