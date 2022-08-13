@@ -29,10 +29,10 @@ function createStore(reducer) {
 }
 
 const store = createStore(favoritesReducer)
-console.log(store.getState())
-store.dispatch(action1)
-console.log(store.getState())
-store.dispatch(action2)
-console.log(store.getState())
+// console.log(store.getState())
+// store.dispatch(action1)
+// console.log(store.getState())
+// store.dispatch(action2)
+// console.log(store.getState())
 
 export default store
